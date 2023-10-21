@@ -1,0 +1,11 @@
+{
+  "name": "authorization-system",
+  "version": "1.0.0",
+  "description": "Auth system for Arcane",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CyberRodeo",
+  "license": "ISC"
+}
