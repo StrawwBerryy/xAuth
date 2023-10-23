@@ -8,11 +8,12 @@
 </head>
 <body>
     <div class="content">
-        <div class="form">
-            <input type="text" placeholder="Username" class="fileinput">
-            <input type="password" placeholder="password" class="fileinput">
+        <form class="form" action="/" method="post">
+            <input type="text" placeholder="Username" class="fileinput" name="user" required>
+            <input type="password" placeholder="password" class="fileinput" name="pass" required>
             <button type="submit">Enter</button>
-        </div>
+        </form>
     </div>
+    <script src="/scripts/auth.js"></script>
 </body>
 </html>
