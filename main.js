@@ -7,34 +7,43 @@ const pass = '123123';
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended : true}));
 
-let Isloggedin = false;
+var auth = require('./scripts/auth');
 
-function isLoggedin(req, res, next){
-    if(Isloggedin == false){
-        res.redirect('/');
-        console.log('the value of the variable is false bruh')
-    } else {
-        console.log('logged in!');
-    }
-}
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));
 app.use(express.static('public'));
 
+function isLoggedin(req, res, next){
+    if(auth == false){
+        res.redirect('/');
+        console.log('the value of the variable is false bruh')
+    } else {
+        next();
+    }
+}
+
 app.get('/', (req, res)=>{
     res.render('main');
 });
+
+console.log('default auth variable = ' + auth);
+
+// function isLoggedin(){
+//     console.log('is the user loggedd in?' + auth);
+// };
+
+
 
 app.post('/', (req, res)=>{
     if(req.body.user == user && req.body.pass == pass){
         console.log('verified!');
         res.redirect('/secret');
-        let Isloggedin = true;
-        console.log(Isloggedin);
+        auth = true;
+        console.log(auth);
     } else {
         res.redirect('/');
-        console.log("not verified" + Isloggedin);
+        console.log("not verified " + auth);
     }
 });
 
