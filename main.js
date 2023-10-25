@@ -4,15 +4,13 @@ const app = express();
 const user = 'cyberrodeo';
 const pass = '123123';
 
+// const middleware = require('./middleware/index');
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended : true}));
 
 
 require('dotenv').config();
-
-app.set('view engine', 'ejs');
-app.use(express.static(__dirname + "/public"));
-app.use(express.static('public'));
 
 function isLoggedin(req, res, next){
     if(process.env.isLoggedin == false){
@@ -22,6 +20,10 @@ function isLoggedin(req, res, next){
         next();
     }
 }
+
+app.set('view engine', 'ejs');
+app.use(express.static(__dirname + "/public"));
+app.use(express.static('public'));
 
 app.get('/', (req, res)=>{
     res.render('main');
