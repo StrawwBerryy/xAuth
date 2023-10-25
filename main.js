@@ -7,15 +7,15 @@ const pass = '123123';
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended : true}));
 
-var auth = require('./scripts/auth');
 
+require('dotenv').config();
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/public"));
 app.use(express.static('public'));
 
 function isLoggedin(req, res, next){
-    if(auth == false){
+    if(process.env.isLoggedin == false){
         res.redirect('/');
         console.log('the value of the variable is false bruh')
     } else {
@@ -27,23 +27,17 @@ app.get('/', (req, res)=>{
     res.render('main');
 });
 
-console.log('default auth variable = ' + auth);
-
-// function isLoggedin(){
-//     console.log('is the user loggedd in?' + auth);
-// };
-
-
+console.log('default auth variable = ' + process.env.isLoggedin);
 
 app.post('/', (req, res)=>{
     if(req.body.user == user && req.body.pass == pass){
         console.log('verified!');
         res.redirect('/secret');
-        auth = true;
-        console.log(auth);
+        process.env.isLoggedin = true;
+        console.log(process.env.isLoggedin);
     } else {
         res.redirect('/');
-        console.log("not verified " + auth);
+        console.log("not verified " + process.env.isLoggedin);
     }
 });
 
