@@ -35,10 +35,32 @@
     margin-top: .5%;
     transition: .2s;
     width: 20%;
+    background-color: white;
+    border: 1px solid black;
 }
 
 .form button:hover{
     background-color: black;
     color: white;
     border-color: black !important;
+}
+
+.link{
+    color: black;
+    text-decoration: none;
+    padding: .5%;
+    border: 1px solid black;
+    width: 20%;
+    margin-top: .5%;
+    transition: .2s;
+    text-align: center;
+}
+
+.link:hover{
+    color: white;
+    background-color: black;
+}
+
+.error{
+    margin-top: .5%;
 }
