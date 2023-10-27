@@ -35,8 +35,8 @@ app.get('/secret', middlewareobj.authMiddleware, (req, res)=>{
     res.render('secretpage');
 });
 
-app.get('/testing', middlewareobj.authMiddleware, (req, res)=>{
-    res.send("this is the testing page!")
+app.get('/testing', middlewareobj.loggedin, (req, res)=>{
+    res.send("this is the testing page!");
 });
 
 app.listen(3000, process.env.PORT, process.env.IP, ()=>{

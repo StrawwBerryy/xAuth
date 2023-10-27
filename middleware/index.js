@@ -17,7 +17,6 @@ middlewareobj.authMiddleware = function(req, res, next){
 middlewareobj.loggedin = function(req, res, next){
     if(process.env.isLoggedin == 'true'){
         next();
-        return userStatus = true;
     } else {
         next();
     }
