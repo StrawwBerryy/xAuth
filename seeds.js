@@ -4,6 +4,3 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config();
 
 
-function seed(){
-    
-};
