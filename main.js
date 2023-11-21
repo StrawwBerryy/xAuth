@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
 
 const middleware = require('./middleware/index');
 
